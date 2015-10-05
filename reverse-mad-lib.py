@@ -1,6 +1,5 @@
 ### Build MadLibs Reverse Game ###
 # STEPS #
-
 # if answered correctly sentence refreshes with correct answer in place #
 
 ### RESOURCES ###
@@ -9,54 +8,35 @@
 ### User selects difficulty
 
 #Global Variables#
+difficulty = ""
+easy = "The programming __1__ known as __2__ is an interpreted __1__. That means the __3__ executes instructions directly without compiling into machine-__1__ instructions. Also, __2__ is an interactive and __4__-oriented __1__."
+medium = "A __5__ __6__ repeats a statment while a given condition is __7__. A __8__ __6__ is used to repeat code n __9__ of times. Please note, __6__s break by using the __10__ command."
+hard = "A __11__ is a block of organized, reusable __12__ that is used to perform a single, related action. A __11__ __13__ begins with the __14__ __15__ followed by the __11__ name and __16__. Any __17__ should be placed within the __16__."
 
-__1__ = "" # "language"
-__2__ = "" # "Python"
-__3__ = "" # "program"
-__4__ = "" # "object"
-__5__ = "" # "while"
-__6__ = "" # "loop"
-__7__ = "" # "True"
-__8__ = "" # "for"
-__9__ = "" # "number"
-__10__ = "" # "return"
-__11__ = "" # "function"
-__12__ = "" # "code"
-__13__ = "" # "block"
-__14__ = "" # "keyword"
-__15__ = "" # "def"
-__16__ = "" # "parentheses"
-__17__ = "" # "parameters"
-# difficulty = ""
-easy = "easy"
-medium = "medium"
-hard = "hard"
-
-
+# easy = "easy"
+# medium = "medium"
+# hard = "hard"
 
 #replaceMe = ["__" + str(questionNumber) + "__"]
 answersToQuestions = ["language", "Python", "program", "object", "while","loop","True","for","number","return","function","code","block","keyword","def","parentheses","parameters"]
 print answersToQuestions
 print len(answersToQuestions)
 
-
 #print replaceMe
 
 print "What difficulty would you like to play?"
-def difficultySelector():
-	difficulty = input('easy, medium, or hard: ')
+def difficultySelector(difficulty):
+	difficulty = input("easy, medium, or hard: ")
 	if difficulty == easy:
-		easyChallenge()
+		print easy
 	elif difficulty == medium:
-		mediumChallenge()
+		print medium
 	elif difficulty == hard:
-		hardChallenge()
+		print hard
 	answerSelector(difficulty)
 
-
 def answerSelector(difficulty):
-	# answer = 0
-	# questionsToAnswer = []
+	#print difficultySelector(difficulty)
 	if difficulty == easy:
 		answer = 0
 		questionsToAnswer = 4
@@ -72,30 +52,12 @@ def askAndAnswerQuestions(difficulty, answer, questionsToAnswer):
 	while answer < questionsToAnswer:
 		user_input = raw_input("Which word replaces number " + str(answer + 1) + "?: ")
 		if user_input == answersToQuestions[answer]:
+			## Update sentence with replaced answer ##
+			print  difficulty.replace("__" + str(answer+1) + "__", answersToQuestions[answer])
 			answer += 1
 		else:
 			print "Try again"
 			answer = answer
 
-
-
-def easyChallenge():
-	print """The programming __1__ known as __2__ is an interpreted __1__. That means the __3__ executes instructions directly without compiling into machine-__1__ instructions. Also, __2__ is an interactive and __4__-oriented __1__."""
-
-#def easyAnswers():
-#	if input == 
-	# __1__ = "language"
-	# __2__ = "Python"
-	# __3__ = "program"
-	# __4__ = "object"
-
-def mediumChallenge():
-	print """A __5__ __6__ repeats a statment while a given condition is __7__. A __8__ __6__ is used to repeat code n __9__ of times. Please note, __6__s break by using the __10__ command."""
-
-
-def hardChallenge():
-	print """A __11__ is a block of organized, reusable __12__ that is used to perform a single, related action. A __11__ __13__ begins with the __14__ __15__ followed by the __11__ name and __16__. Any __17__ should be placed within the __16__."""
-
-
 # Run the program #
-difficultySelector()
+difficultySelector(difficulty)
