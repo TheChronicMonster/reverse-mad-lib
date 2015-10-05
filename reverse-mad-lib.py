@@ -32,10 +32,10 @@ __14__ = "" # "keyword"
 __15__ = "" # "def"
 __16__ = "" # "parentheses"
 __17__ = "" # "parameters"
-difficulty = ""
-easy = ""
-medium = ""
-hard = ""
+# difficulty = ""
+easy = "easy"
+medium = "medium"
+hard = "hard"
 
 
 #replaceMe = ["__" + str(questionNumber) + "__"]
@@ -48,33 +48,32 @@ print len(answersToQuestions)
 
 print "What difficulty would you like to play?"
 def difficultySelector():
-	easy = ["easy", "EASY", "Easy"]
-	medium = ["medium", "MEDIUM", "Medium"]
-	hard = ["hard", "HARD", "Hard"]
 	difficulty = input('easy, medium, or hard: ')
 	if difficulty == easy:
 		easyChallenge()
-		answerSelector()
 	elif difficulty == medium:
 		mediumChallenge()
-		answerSelector()
 	elif difficulty == hard:
 		hardChallenge()
-		answerSelector()
-	else:
-		difficultySelector()
+	answerSelector(difficulty)
 
-def answerSelector():
+
+def answerSelector(difficulty):
+	# answer = 0
+	# questionsToAnswer = []
 	if difficulty == easy:
 		answer = 0
-		questionsToAnswer = [__1__, __2__, __3__, __4__]
+		print "I'm easy"
+		questionsToAnswer = 4
 	elif difficulty == medium:
 		answer = 4
-		questionsToAnswer = [__5__, __6__, __7__, __8__, __9__, __10__]
+		print "Im middle"
+		questionsToAnswer = 10
 	elif difficulty == hard:
 		answer = 10
-		questionsToAnswer = [__11__, __12__, __13__, __14__, __15__, __16__, __17__]
-	while answer < len(questionsToAnswer):
+		print "I'm hard"
+		questionsToAnswer = 17
+	while answer < questionsToAnswer:
 		user_input = raw_input("What should replace " + answersToQuestions[answer] + "?")
 		if user_input == answersToQuestions[answer]:
 			answer += 1
@@ -84,11 +83,7 @@ def answerSelector():
 
 
 def easyChallenge():
-	print """The programming __1__ known as __2__ is an
-	interpreted __1__. That means the __3__ executes
-	instructions directly without compiling into 
-	machine-__1__ instructions. Also, __2__ is 
-	an interactive and __4__-oriented __1__."""
+	print """The programming __1__ known as __2__ is an interpreted __1__. That means the __3__ executes instructions directly without compiling into machine-__1__ instructions. Also, __2__ is an interactive and __4__-oriented __1__."""
 
 #def easyAnswers():
 #	if input == 
@@ -98,18 +93,11 @@ def easyChallenge():
 	# __4__ = "object"
 
 def mediumChallenge():
-	print """A __5__ __6__ repeats a statment while a given
-	condition is __7__. A __8__ __6__ is used to
-	repeat code n __9__ of times. Please note, __6__s break by using the
-	__10__ command."""
+	print """A __5__ __6__ repeats a statment while a given condition is __7__. A __8__ __6__ is used to repeat code n __9__ of times. Please note, __6__s break by using the __10__ command."""
 
 
 def hardChallenge():
-	print """A __11__ is a block of organized, 
-	reusable __12__ that is used to perform a single, related action. 
-	A __11__ __13__ begins with 
-	the __14__ __15__ followed by the __11__ name and __16__. 
-	Any __17__ should be placed with the __16__."""
+	print """A __11__ is a block of organized, reusable __12__ that is used to perform a single, related action. A __11__ __13__ begins with the __14__ __15__ followed by the __11__ name and __16__. Any __17__ should be placed with the __16__."""
 
 
 # Run the program #
