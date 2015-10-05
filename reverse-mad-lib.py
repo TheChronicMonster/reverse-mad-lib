@@ -1,11 +1,6 @@
 ### Build MadLibs Reverse Game ###
 # STEPS #
 
-# Create a statement asking for difficulty #
-# Make if statement selecting difficulty #
-# Create sentences with blanks #
-# Create a function to search through sentences #
-# Create a try again prompt #
 # if answered correctly sentence refreshes with correct answer in place #
 
 ### RESOURCES ###
@@ -38,6 +33,7 @@ medium = "medium"
 hard = "hard"
 
 
+
 #replaceMe = ["__" + str(questionNumber) + "__"]
 answersToQuestions = ["language", "Python", "program", "object", "while","loop","True","for","number","return","function","code","block","keyword","def","parentheses","parameters"]
 print answersToQuestions
@@ -63,21 +59,22 @@ def answerSelector(difficulty):
 	# questionsToAnswer = []
 	if difficulty == easy:
 		answer = 0
-		print "I'm easy"
 		questionsToAnswer = 4
 	elif difficulty == medium:
 		answer = 4
-		print "Im middle"
 		questionsToAnswer = 10
 	elif difficulty == hard:
 		answer = 10
-		print "I'm hard"
 		questionsToAnswer = 17
+	askAndAnswerQuestions(difficulty, answer, questionsToAnswer)
+
+def askAndAnswerQuestions(difficulty, answer, questionsToAnswer):
 	while answer < questionsToAnswer:
-		user_input = raw_input("What should replace " + answersToQuestions[answer] + "?")
+		user_input = raw_input("Which word replaces number " + str(answer + 1) + "?: ")
 		if user_input == answersToQuestions[answer]:
 			answer += 1
 		else:
+			print "Try again"
 			answer = answer
 
 
@@ -97,7 +94,7 @@ def mediumChallenge():
 
 
 def hardChallenge():
-	print """A __11__ is a block of organized, reusable __12__ that is used to perform a single, related action. A __11__ __13__ begins with the __14__ __15__ followed by the __11__ name and __16__. Any __17__ should be placed with the __16__."""
+	print """A __11__ is a block of organized, reusable __12__ that is used to perform a single, related action. A __11__ __13__ begins with the __14__ __15__ followed by the __11__ name and __16__. Any __17__ should be placed within the __16__."""
 
 
 # Run the program #
